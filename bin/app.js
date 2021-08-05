@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { execSync } = require("child_process");
 const path = require("path");
 const fs = require("fs");
@@ -5,7 +6,7 @@ const fs = require("fs");
 if (process.argv.length < 3) {
   console.log("You have to provide a name to your app.");
   console.log("For example:");
-  console.log("npx create-uibuddy-app my-app");
+  console.log("npx create-uibuddy-app myapp");
   process.exit(1);
 }
 
@@ -37,11 +38,13 @@ async function main() {
     console.log("Installing dependencies...");
     execSync("npm install");
 
-    console.log("Removing useless files");
-    execSync("npx rimraf ./.git");
     fs.rmdirSync(path.join(projectPath, "bin"), { recursive: true });
 
     console.log("Installaion complete!");
+    console.log("Run the following scripts in order:");
+    console.log("\n");
+    console.log("\x1b[32m%s\x1b[0m", "cd " + projectName);
+    console.log("\x1b[32m%s\x1b[0m", "npm run watch");
   } catch (error) {
     console.log(error);
   }
