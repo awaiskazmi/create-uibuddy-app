@@ -1,0 +1,19 @@
+{
+  "name": "create-uibuddy-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "run-func uibuddy.js watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "uibuddy": "^0.1.9"
+  },
+  "bin": {
+    "create-boilerplate": "./generate-app.js"
+  }
+}
